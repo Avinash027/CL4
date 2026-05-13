@@ -1,0 +1,51 @@
+Practical Notes: 1_USA_House.ipynb
+
+Purpose:
+- Build a regression model to predict house prices (Price) using area-level features.
+- Learn data loading, exploratory data analysis (EDA), feature selection, model training, evaluation and interpretation of coefficients.
+
+Dataset:
+- A CSV containing 5000 rows and columns: Avg. Area Income, Avg. Area House Age, Avg. Area Number of Rooms, Avg. Area Number of Bedrooms, Area Population, Price, Address.
+
+What we are doing (step-by-step):
+1. Load dataset (pandas.read_csv) and inspect head(), info(), describe(), columns.
+2. Visualize distributions of target (Price) and features (seaborn distplot/histplot, pairplot, boxplot) to detect skew, outliers.
+3. Prepare data: select numeric features, drop Address (text), split into X (features) and y (Price).
+4. Train/test split (sklearn.model_selection.train_test_split).
+5. Fit a Linear Regression model (sklearn.linear_model.LinearRegression) on training set.
+6. Inspect learned coefficients and intercept to interpret feature importance.
+7. Make predictions on test set and compute evaluation metrics: MAE, MSE, RMSE (sklearn.metrics.mean_absolute_error, mean_squared_error).
+8. Plot residuals distribution and predicted vs actual scatter to check model fit.
+
+Key functions / libraries used:
+- pandas: read_csv, DataFrame.head/info/describe
+- seaborn / matplotlib: distplot (deprecated)/histplot, pairplot, scatterplot
+- sklearn.model_selection.train_test_split
+- sklearn.linear_model.LinearRegression
+- sklearn.metrics: mean_absolute_error, mean_squared_error
+
+Expected outputs:
+- Data frame summary and descriptive statistics.
+- Histograms and pairwise plots showing relationships.
+- Model coefficients for each feature (e.g., coefficient for Avg. Area Income, House Age, Rooms, Bedrooms, Area Population).
+- Evaluation metrics (MAE, MSE, RMSE) to quantify error on test set.
+
+What we achieve / learning outcomes:
+- Understand linear regression pipeline from EDA to evaluation.
+- Interpret model coefficients as marginal effect on price per unit change in each feature (holding others constant).
+- Evaluate model performance and recognize limitations (nonlinearities, heteroscedasticity, omitted variables).
+
+Practical exam style tasks / questions:
+- Explain why Address was dropped from features. How could you use it if needed?
+- Show the train/test split code and train a LinearRegression. Report MAE and RMSE.
+- Which feature has the largest positive effect on Price? Show the coefficient and interpret it.
+- Plot residuals and comment on model assumptions (linearity, normality, homoscedasticity).
+- Suggest two improvements to the model (e.g., polynomial features, regularization, feature engineering).
+
+Commands / Run instructions:
+- Ensure required libraries installed: pandas, numpy, matplotlib, seaborn, scikit-learn.
+- Run the notebook cells sequentially in a Python environment (Jupyter/Colab).
+
+Notes & tips:
+- If seaborn.distplot is used, replace with seaborn.histplot or displot due to deprecation.
+- Consider scaling features if you use regularized models.
